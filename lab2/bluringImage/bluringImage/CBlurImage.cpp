@@ -76,8 +76,8 @@ DWORD WINAPI ThreadProc(CONST LPVOID lpParam)
 void CBlurImage::StarBluring() {
 	BMP inputImage;
 	BMP *outputImage = new BMP();
+	if (!inputImage.ReadFromFile(m_inputImage)) { exit(0); };
 	outputImage->ReadFromFile(m_inputImage);
-	inputImage.ReadFromFile(m_inputImage);
 	cout << "Opened " << m_inputImage << endl;
 	cout << "Start bluring..." << endl;
 	vector<ThreadInfo*> threads = {};
